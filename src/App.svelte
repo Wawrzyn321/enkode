@@ -3,13 +3,15 @@
 	import JSON from './JSON.svelte';
 	import Result from './Result.svelte';
 
-    import { encodings } from './encodings';
-
 	let data = {
-		issuerUrl:"https://kyma.eu.auth0.com/",
-		clientId:"5W89vBHwn2mu7nT0uzvoN4xCof0h4jtN",
-		kubernetesApiUrl: "api.wave.kyma.fun",
+		issuerUrl: "https://kyma.eu.auth0.com/",
+		clientId: "5W89vBHwn2mu7nT0uzvoN4xCof0h4jtN",
+		k8sApiUrl: "api.nope.hasselhoff.shoot.canary.k8s-hana.ondemand.com",
+		disabledNavigationNodes: "",
+		systemNamespaces: "istio-system knative-eventing knative-serving kube-public kube-system kyma-backup kyma-installer kyma-integration kyma-system natss kube-node-lease kubernetes-dashboard serverless-system",
+		scope: "audience:server:client_id:kyma-client audience:server:client_id:console openid email profile groups",
 		usePKCE: true,
+		bebEnabled: false
 	};
 
 	let encoding = 'lzstring';

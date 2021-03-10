@@ -1,23 +1,29 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-    import { JSONEditor } from 'svelte-jsoneditor'
 
     export let data: string;
 
 	const dispatch = createEventDispatcher();
 
-    function onChange(content) {
-        dispatch('change', content.json);
+    function onChange(e) {
+        try {
+            const json = JSON.parse(e.target.value);
+            dispatch('change', json);
+        } catch(_) {}
     }
     </script>
     
 <section id="json">
-   <JSONEditor json={data} onChange={onChange} mainMenuBar={false}/>
+    <textarea value={JSON.stringify(data, null, 2)} on:input={onChange}/>
 </section>
     
 <style>
     #json {
         grid-area: json;
         width: 65vw;
+    }
+    textarea {
+        width: 100%;
+        height: 100%;
     }
 </style>
