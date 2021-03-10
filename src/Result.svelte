@@ -17,7 +17,7 @@
 
     function copy() {
         encoders['lzw'].compress(data).then(compressed => {
-            copyToClipboard(compressed);
+            copyToClipboard(`?init=${compressed}`);
             copyText = "Copied!";
         });
     }
@@ -68,7 +68,7 @@
             <span>Params:</span>
             <button on:click={copy} on:mouseleave={() => copyText="Copy"}>{copyText}</button>
         </div>
-        <pre>&auth={encodingResult}</pre>
+        <pre>&init={encodingResult}</pre>
         <!-- <p>Length: {encodingResult.length}</p>
         <p>Original length: {encodeURIComponent(JSON.stringify(data)).length}</p> -->
     {:catch error}
