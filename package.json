@@ -6,7 +6,7 @@
     "dev": "rollup  -c -w",
     "start": "sirv public",
     "validate": "svelte-check",
-    "publish": "enkode.surge.sh"
+    "publish": "npm run build && surge public enkode.surge.sh"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",

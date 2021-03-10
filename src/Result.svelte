@@ -5,7 +5,7 @@
 
     import { encodings } from './encodings';
  
-    export let data: string;
+    export let data: object;
     export let encoding: string;
 
     let customEncoded = null;
@@ -16,7 +16,7 @@
         .map(encoding => [encoding, createEncoder(encoding)]));
 
     function copy() {
-        encoders['lzw'].compress(data).then(compressed => {
+        encoders[encoding].compress(data).then(compressed => {
             copyToClipboard(`?init=${compressed}`);
             copyText = "Copied!";
         });
